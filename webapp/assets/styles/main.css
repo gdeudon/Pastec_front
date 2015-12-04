@@ -1,0 +1,78 @@
+/* ==========================================================================
+Roboto font declaration
+========================================================================== */
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: url(assets/fonts/Roboto/Roboto-Regular.ttf) format('ttf');
+}
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    src: url(assets/fonts/Roboto/Roboto-Medium.ttf) format('ttf');
+}
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    src: url(assets/fonts/Roboto/Roboto-Bold.ttf) format('ttf');
+}
+@font-face {
+    font-family: 'Roboto';
+    font-style: italic;
+    font-weight: 400;
+    src: url(assets/fonts/Roboto/Roboto-Italic.ttf) format('ttf');
+}
+
+/* ==========================================================================
+Browser Upgrade Prompt
+========================================================================== */
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+custom
+========================================================================== */
+html, body {
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.preview img {
+    max-width: 300px;
+    max-height: 150px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.md-button.md-icon-button.navbarbutton{
+    line-height: 0px;
+    margin-right: -8px;
+    color: rgba(255,255,255,1);
+}
+.camera{
+    max-width: 150px;
+    width: 60%;
+}
+.fakeImg{
+    margin-top: 50px;
+}
+.customMenu{
+    padding: 0;
+}
+
+.loupe{
+    font-size: 1.7em;
+    color:white;
+}
+.md-button.md-fab.md-mini.btnLoupe{
+    line-height: 47px;
+}
+

@@ -1,0 +1,5 @@
+AuthUserFile /Users/guillaume/.htpasswd
+AuthName "Restricted"
+AuthType Basic
+
+require user guest

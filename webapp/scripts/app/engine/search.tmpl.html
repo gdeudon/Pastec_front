@@ -1,0 +1,81 @@
+<div layout="column" layout-fill>
+
+    <md-toolbar class="md-whiteframe-z2">
+        <div class="md-toolbar-tools">
+            <span>Photo check</span>
+            <!-- fill up the space between left and right area -->
+            <span flex></span>
+            <md-menu class="customMenu">
+                <md-button ng-click="$mdOpenMenu($event)" class="md-icon-button navbarbutton">
+                    <i class="zmdi zmdi-cake zmdi-hc-2x"></i>
+                </md-button>
+                <md-menu-content>
+                    <md-menu-item>
+                        <md-button ng-click="srchCtrl.goSearchPage()">Recherche</md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button ng-click="srchCtrl.goAdminPage()">Admin</md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+        </div>
+    </md-toolbar>
+
+
+    <md-content flex>
+        <md-progress-linear ng-show="srchCtrl.imgLoad"
+                            md-mode="determinate" value="{{srchCtrl.progressPercentage}}"
+                            class="md-accent">
+        </md-progress-linear>
+        <section layout="column" layout-padding layout-align="center center">
+            <md-subheader class="md-accent md-no-sticky">
+                <div layout="row" layout-align="center center">
+                    <span>{{srchCtrl.consigne}}</span>
+                    <md-button class="md-fab md-accent md-mini btnLoupe" ng-show="srchCtrl.try" ng-click="srchCtrl.retry()">
+                        <i class="zmdi zmdi-search-for zmdi-hc-2x loupe"></i>
+                    </md-button>
+                </div>
+            </md-subheader>
+
+            <!--<input type="file" accept="image/*" id="capture" capture="camera" name="file" ng-model="srchCtrl.file">-->
+
+            <img src="assets/images/Camera-icon.png" alt="camera icon" class="camera"
+                 ng-if="!srchCtrl.imgLoad"
+                 ngf-select=""
+                 ngf-drop=""
+                 ng-model="srchCtrl.file"
+                 accept="image/*"
+                 ngf-multiple="false"
+                 ngf-pattern="image/*"
+                 ngf-capture="camera"
+                 ngf-select-disabled=false
+                 ngf-drop-disabled=true
+                 ng-disabled="srchCtrl.imgLoad"/>
+
+            <!--<input type="file" class="camera"
+                 ng-model="srchCtrl.file"
+                 accept="image/*"
+                 ngf-capture="camera"
+                 ngf-select=""
+                 />-->
+
+            <div class="preview">
+                <img ngf-src="!srchCtrl.file.$error && srchCtrl.file" class="md-whiteframe-1dp">
+                <!--<i ng-show="!srchCtrl.imgLoad" class="zmdi zmdi-photo-size-select-large zmdi-hc-5x fakeImg"></i>-->
+            </div>
+        </section>
+
+        <md-list class="md-whiteframe-z2">
+            <md-list-item class="md-2-line" ng-repeat="resultat in srchCtrl.resultatRequest.result">
+                <i class="zmdi zmdi-fire zmdi-hc-2x md-avatar"></i>
+                <div class="md-list-item-text">
+                    <h3>{{ resultat.nom }}</h3>
+                    <p>{{ resultat.description }}</p>
+                </div>
+                <md-divider></md-divider>
+            </md-list-item>
+        </md-list>
+    </md-content>
+
+</div>
+

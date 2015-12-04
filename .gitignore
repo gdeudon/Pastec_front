@@ -1,0 +1,11 @@
+bower_components/
+dist/
+tmp/
+lib/
+node_modules/
+.idea/
+
+######################
+# Mac OSX
+######################
+.DS_Store

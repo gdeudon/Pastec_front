@@ -1,0 +1,76 @@
+<div layout="column" layout-fill>
+
+    <md-toolbar class="md-whiteframe-z2">
+        <div class="md-toolbar-tools">
+            <span>Photo check - admin</span>
+            <!-- fill up the space between left and right area -->
+            <span flex></span>
+            <md-menu class="customMenu">
+                <md-button ng-click="$mdOpenMenu($event)" class="md-icon-button navbarbutton">
+                    <i class="zmdi zmdi-cake zmdi-hc-2x"></i>
+                </md-button>
+                <md-menu-content>
+                    <md-menu-item>
+                        <md-button ng-click="admCtrl.goSearchPage()">Recherche</md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button ng-click="admCtrl.goAdminPage()">Admin</md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+        </div>
+    </md-toolbar>
+    <md-progress-linear ng-show="admCtrl.imgLoad"
+                        md-mode="determinate" value="{{admCtrl.progressPercentage}}"
+                        class="md-accent">
+    </md-progress-linear>
+
+    <md-content>
+
+        <section layout="column" layout-padding layout-align="center center">
+            <md-subheader class="md-accent md-no-sticky">
+                <div layout="row" layout-align="center center">
+                    <span>{{admCtrl.consigne}}</span>
+                    <md-button class="md-fab md-accent md-mini btnLoupe" ng-show="admCtrl.try" ng-click="admCtrl.retry()">
+                        <i class="zmdi zmdi-search-for zmdi-hc-2x loupe"></i>
+                    </md-button>
+                </div>
+            </md-subheader>
+
+            <div class="preview">
+                <img ngf-src="!admCtrl.file.$error && admCtrl.file" class="md-whiteframe-1dp">
+                <!--<i ng-show="!admCtrl.imgLoad" class="zmdi zmdi-photo-size-select-large zmdi-hc-5x fakeImg"></i>-->
+            </div>
+
+            <form layout="column" layout-align="center center" name="formUp">
+                <md-input-container>
+                    <label>nom</label>
+                    <input type="text" ng-model="admCtrl.info.name" required>
+                </md-input-container>
+                <md-input-container>
+                    <label>description</label>
+                    <textarea ng-model="admCtrl.info.description" required></textarea>
+                </md-input-container>
+                <md-button ng-click="admCtrl.goUpload()" ng-disabled="formUp.$invalid || admCtrl.lockBtn"
+                           class="md-raised md-primary">Upload</md-button>
+            </form>
+
+            <img src="assets/images/Camera-icon.png" alt="camera icon" class="camera"
+                 ng-if="!admCtrl.imgLoad"
+                 ngf-select=""
+                 ngf-drop=""
+                 ng-model="admCtrl.file"
+                 accept="image/*"
+                 ngf-multiple="false"
+                 ngf-pattern="image/*"
+                 ngf-capture="camera"
+                 ngf-select-disabled=false
+                 ngf-drop-disabled=true
+                 ng-disabled="admCtrl.imgLoad"/>
+
+        </section>
+
+    </md-content>
+
+</div>
+

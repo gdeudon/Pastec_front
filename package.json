@@ -1,0 +1,19 @@
+{
+  "name": "Pastec",
+  "private": true,
+  "authors": [
+    "Deudon Guillaume <guillaume.deudon@univ-valenciennes.fr>"
+  ],
+  "version": "0.0.1",
+  "description": "Image recognition",
+  "readme": "README.md",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^0.8.5"
+  },
+  "scripts": {
+    "postinstall": "bower install",
+    "prestart": "npm install",
+    "start": "http-server -a localhost -p 8000 -c-1"
+  }
+}
