@@ -1,4 +1,4 @@
 {
-  "proxy":"http://proxy-rech.univ-valenciennes.fr:3128",
-  "https-proxy":"http://proxy-rech.univ-valenciennes.fr:3128"
+  "proxy":"",
+  "https-proxy":""
 }
